@@ -1,8 +1,10 @@
 import java.util.*;
 
+import javax.naming.BinaryRefAddr;
+
 public class bitManipulation {
     public static void main(String[] args) {
-        System.out.println("Enter 1 to check whether a number is power of 2 or not: \n");
+        System.out.println("Enter 1 to check whether a number is power of 2 or not: \nEnter 2 to toggle a bit at position in a number");
         Scanner sc = new Scanner(System.in);
         int choice = sc.nextInt();
 
@@ -16,6 +18,55 @@ public class bitManipulation {
             else{
                 System.out.println("Number " +num+" is a power of two");
             }
+        }
+
+        else if(choice==2){
+            // Write a program to toggle a bit at position = “pos” in a number “n”.
+            // steps to solve the problem first we will get the number at position - pos > then if the pos is 1 the we will use clear and if the number is 0 then we will set to 1.
+            System.out.print("Enter the number to be toggled: ");
+            int num = sc.nextInt();
+            System.out.print("Enter the position: ");
+            int pos = sc.nextInt();
+            int bitMask = 1<<pos;
+            if((bitMask & num)==0){
+                // bit is zero then set to 1
+                int newNumber = bitMask | num;
+                System.out.println("The new Number is: "+ newNumber);
+            }
+            else{
+                int newBitMask = ~(bitMask);
+                int newNumber = newBitMask & num;
+                System.out.println("The new number is " + newNumber);
+            }
+        }
+
+        else if(choice==3){
+            // Write a program to count the number of 1’s in a binary representation of the number.
+            // steps to solve : set count to 0 the use get operaition if 1 then count++
+            System.out.print("Enter the number: ");
+            int num = sc.nextInt();
+            int count=0;
+            int bitmask=1;
+            for(int i=1; i<=9; i++){
+                if((bitmask & num)!=0){
+                    // bit is 1
+                    count++;
+                    bitmask = 1<<i;
+                }
+                else{ 
+                    bitmask=1<<i;
+                }
+            }
+            System.out.println("Number of 1's are: " + count);
+
+        }
+
+        else if(choice==4){
+            // Write 2 functions => decimalToBinary() & binaryToDecimal() to convert a number from one number system to another. [BONUS]
+        }
+
+        else{
+            System.out.println("Invalid input.");
         }
     }
 }
