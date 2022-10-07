@@ -4,7 +4,7 @@ import javax.naming.BinaryRefAddr;
 
 public class bitManipulation {
     public static void main(String[] args) {
-        System.out.println("Enter 1 to check whether a number is power of 2 or not: \nEnter 2 to toggle a bit at position in a number");
+        System.out.println("Enter 1 to check whether a number is power of 2 or not \nEnter 2 to toggle a bit at position in a number \nEnter 3 to count the number of 1’s in a binary representation of the number \nEnter 4 to convert a number from one number system to another");
         Scanner sc = new Scanner(System.in);
         int choice = sc.nextInt();
 
@@ -63,8 +63,17 @@ public class bitManipulation {
 
         else if(choice==4){
             // Write 2 functions => decimalToBinary() & binaryToDecimal() to convert a number from one number system to another. [BONUS]
+            // function to convert binary to decimal
+            // public static int binToDec(int num) {
+            //     int sep = 
+            // }
+            // // functio to convert decimal to binary
+            // public static int decToBin(int num) {
+                
+            // }
         }
 
+        
         else{
             System.out.println("Invalid input.");
         }
