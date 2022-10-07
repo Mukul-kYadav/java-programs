@@ -1,6 +1,7 @@
+import java.lang.Math;
 import java.util.*;
 
-import javax.naming.BinaryRefAddr;
+
 
 public class bitManipulation {
     public static void main(String[] args) {
@@ -64,18 +65,51 @@ public class bitManipulation {
         else if(choice==4){
             // Write 2 functions => decimalToBinary() & binaryToDecimal() to convert a number from one number system to another. [BONUS]
             // function to convert binary to decimal
-            // public static int binToDec(int num) {
-            //     int sep = 
-            // }
-            // // functio to convert decimal to binary
-            // public static int decToBin(int num) {
-                
-            // }
+            System.out.println("Enter 1 to convert decimal to binary. \nEnter 2 to convert binary to decimal. ");
+            int conversionChoice =  sc.nextInt();
+            if(conversionChoice==2){
+                System.out.print("Enter binary number: ");
+                String binNum = sc.next();
+                binaryToDecimal(binNum);
+            }
+            else if(conversionChoice==1){
+                System.out.print("Enter decimal number: ");
+                int num = sc.nextInt();
+                decimalToBinary(num);
+            }
+            else{
+                System.out.println("Invalid choice");
+            }
         }
 
         
         else{
             System.out.println("Invalid input.");
         }
+    }
+
+    public static void binaryToDecimal(String num) {
+        double deci = 0;
+        for (int i = 0; i < num.length(); i++) {
+            if(num.charAt(i)=='1'){
+                deci+=  Math.pow(2, (num.length()-1-i));
+            }
+        }
+        System.out.println("Decimal representation of " + num + " is " + deci);
+    }
+
+    public static void decimalToBinary(int num) {
+        int binNum[]=new int[num];
+         int i =0;
+         while(num>0){
+            binNum[i] = num%2;
+            num = num/2;
+            i++;
+         }
+         System.out.print("Binary representation of " + num + " is ");
+
+         for (int j = i-1; j>=0; j--) {
+            System.out.print(binNum[j]);
+         }
     }
 }
